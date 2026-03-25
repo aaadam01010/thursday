@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frida!! You have a mail</title>
+    <style>
+        body {
+    background-image: url("moto.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: center;
+            width: 100%;
+            height: 80%;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .gift {
+    display: block;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+        .initial-gift-message {
+            display: none;
+            font-size: 3vh;
+            font-weight: 520;
+            color: #000000;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: 550;
+        }
+
+        .initial-gift-message-2 {
+            display: none;
+            font-size: 3vh;
+            font-weight: 520;
+            color: #000000;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: 550;
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0) rotate(180deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        #gift1:checked~.container .initial-gift-message {
+            display: block;
+        }
+
+        .dibujo {
+            width: 50vh;
+            height: 30vh;
+        }
+
+        .dibujo1 {
+            width: 50vh;
+            height: 30vh;
+            display: none;
+        }
+
+        .carta {
+            position: relative;
+            bottom: 20vh;
+            left: 11vh;
+        }
+
+        .boton {
+            width: 20vh;
+            height: 5vh;
+            border: 1px solid rgba(25, 0, 167, 0.664);
+            background-color: #ff6f61;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: 2.5vh;
+        }
+
+        .boton:hover {
+            background-color: #ff9c93;
+            cursor: pointer;
+        }
+
+        .boton2 {
+            width: 20vh;
+            height: 5vh;
+            border: 1px solid rgba(25, 0, 167, 0.664);
+            background-color: #ff6f61;
+            color: white;
+            display: none;
+            border-radius: 8px;
+            font-size: 2.5vh;
+        }
+
+        .boton2:hover {
+            background-color: #ff9c93;
+            cursor: pointer;
+        }
+
+        .small-gift-message {
+            display: none;
+            font-size: 200px;
+            color: #333;
+
+            animation: pop-in 2s;
+        }
+
+        .texto-small-gift-message {
+            display: none;
+            font-size: 3vh;
+            font-weight: 520;
+            color: #000000;
+            margin-top: 20px;
+            width: 100%;
+
+        }
+
+        .small-gift-message:hover {
+            cursor: pointer;
+        }
+
+        #boton1:checked~.container .initial-gift-message,
+        #small-gift-message:checked~.container .initial-gift-message {
+            display: none;
+        }
+
+        #boton1:checked~.container .dibujo,
+        #small-gift-message:checked~.container .dibujo {
+            display: none;
+        }
+
+        #boton1:checked~.container .texto-small-gift-message,
+        #small-gift-message:checked~.container .texto-small-gift-message {
+            display: none;
+        }
+
+        #boton1:checked~.container .dibujo1,
+        #boton1:checked~.container .small-gift-message,
+        #boton1:checked~.container .initial-gift-message-2 {
+            display: block;
+        }
+
+        #boton1:checked~.container .boton2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #boton1:checked~.container .boton,
+        #small-gift-message:checked~.container .boton {
+            display: none;
+        }
+
+        #small-gift-message:checked~.container .mensajeFinal {
+            display: flex;
+        }
+
+
+        .mensajeFinal {
+            width: 38vh;
+            height: 60vh;
+            border: 4px solid rgb(80, 94, 155);
+            border-radius: 10px;
+            background-color: #e9eaff;
+            color: black;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .textoCarta {
+            font-size: 5vh;
+            text-align: center;
+        }
+
+        .textoPd {
+            font-size: 2.4vh;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <input type="radio" name="gift" id="gift1" checked>
+    <input type="radio" name="gift" id="boton1">
+    <input type="radio" name="gift" id="small-gift-message">
+    <input type="radio" name="gift" id="mensajeFinal">
+
+
+    <div class="container">
+        <div class="content">
+
+            <label for="gift1" class="gift" id="gift1">🎁</label>
+            <div class="initial-gift-message">Hey...</div>
+   	    <label for="boton1" class="boton">Open</label>
+            <div class="dibujo">
+                    <img style="width: 25vh;"
+
+                        src="nay.png">
+
+                </div>
+                <div class="carta">
+                    <img style="width: 14vh;"
+                        src="max.png">
+                </div>
+            </div>
+
+            <label for="small-gift-message" class="boton2" id="small-gift-message">Read letter</label>
+
+    <label for="small-gift-message" class="boton2">Read letter</label>
+
+    <label class="texto-small-gift-message">
+        Click on the letter to open
+    </label>
+
+    <div class="mensajeFinal">
+        <span class="textoCarta">
+            Take care Frida✨<br>
+            happy Thursday <br>
+            I like u <br>
+            Ur a good friend<br>
+                   </span>
+    </div>
+
+</div>
+</body>
+
+</html>
